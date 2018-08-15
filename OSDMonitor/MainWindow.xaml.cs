@@ -20,7 +20,8 @@ namespace OSDMonitor
         public enum MonitoringSessionState {
             Ending = 1,
             Running = 2,
-            NotStarted = 3
+            NotStarted = 3,
+            Failed = 4
         }
 
         public MainWindow()
@@ -65,6 +66,9 @@ namespace OSDMonitor
                 monitoringState = MonitoringSessionState.NotStarted;
             }
 
+            // --- something with _SMSTSLastActionSucceeded to set severity and details
+            // --- MonitoringSessionState.Failed
+
             //' Add monitoring data
             AddMonitoringData(monitoringState);
         }
@@ -85,8 +89,6 @@ namespace OSDMonitor
                 uniqueId = Guid.NewGuid().ToString();
                 TSEnvironment.SetTSVariable(Properties.Settings.Default.UniqueMonitoringTSVariableName, uniqueId);
             }
-
-            // --- something with _SMSTSLastActionSucceeded to set severity and details
 
             if (!String.IsNullOrEmpty(sequenceType))
             {
@@ -134,6 +136,9 @@ namespace OSDMonitor
                 case MonitoringSessionState.NotStarted:
                     details = "Task sequence not started";
                     break;
+                case MonitoringSessionState.Failed:
+                    details = "Deployment failed";
+                    break;
             }
 
             //' Read task sequence variable for computer name value
@@ -152,7 +157,6 @@ namespace OSDMonitor
 
         public void SystemEvents_SessionEnding(object sender, SessionEndingEventArgs e)
         {
-            MessageBox.Show("Application is being shutdown", "Restarting computer", MessageBoxButton.OK, MessageBoxImage.Information); //' ----- ONLY FOR DEBUG
             AddMonitoringData(MonitoringSessionState.Ending);
         }
 
