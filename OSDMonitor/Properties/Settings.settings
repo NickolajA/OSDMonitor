@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OSDMonitor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WebServiceSecretKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fa09b22c-37c6-426a-a03a-8b8d36fb4670</Value>
+    </Setting>
+    <Setting Name="UniqueMonitoringTSVariableName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OSDMonitoringUniqueID</Value>
+    </Setting>
+    <Setting Name="MonitorIntervalMilliseconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
