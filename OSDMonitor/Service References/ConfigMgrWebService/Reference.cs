@@ -1380,6 +1380,12 @@ namespace OSDMonitor.ConfigMgrWebService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ComputerNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SMBIOSGUIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MacAddressField;
+        
         private int SeverityField;
         
         private System.DateTime ModifiedTimeField;
@@ -1446,7 +1452,33 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string SMBIOSGUID {
+            get {
+                return this.SMBIOSGUIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SMBIOSGUIDField, value) != true)) {
+                    this.SMBIOSGUIDField = value;
+                    this.RaisePropertyChanged("SMBIOSGUID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string MacAddress {
+            get {
+                return this.MacAddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MacAddressField, value) != true)) {
+                    this.MacAddressField = value;
+                    this.RaisePropertyChanged("MacAddress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
         public int Severity {
             get {
                 return this.SeverityField;
@@ -1459,7 +1491,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
         public System.DateTime ModifiedTime {
             get {
                 return this.ModifiedTimeField;
@@ -1472,7 +1504,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
         public string DeploymentID {
             get {
                 return this.DeploymentIDField;
@@ -1485,7 +1517,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public string StepName {
             get {
                 return this.StepNameField;
@@ -1498,7 +1530,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
         public int CurrentStep {
             get {
                 return this.CurrentStepField;
@@ -1511,7 +1543,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
         public int TotalSteps {
             get {
                 return this.TotalStepsField;
@@ -1524,7 +1556,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=8)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=10)]
         public System.DateTime StartTime {
             get {
                 return this.StartTimeField;
@@ -1537,7 +1569,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=9)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=11)]
         public System.DateTime EndTime {
             get {
                 return this.EndTimeField;
@@ -1550,7 +1582,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
         public string Details {
             get {
                 return this.DetailsField;
@@ -1563,7 +1595,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
         public string DartIP {
             get {
                 return this.DartIPField;
@@ -1576,7 +1608,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
         public string DartPort {
             get {
                 return this.DartPortField;
@@ -1589,7 +1621,7 @@ namespace OSDMonitor.ConfigMgrWebService {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
         public string DartTicket {
             get {
                 return this.DartTicketField;
@@ -8188,49 +8220,74 @@ namespace OSDMonitor.ConfigMgrWebService {
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
         public string computerName;
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=3)]
-        public int severity;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string uuid;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string modifiedTime;
+        public string macAddress;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string deploymentId;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
+        public int severity;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string stepName;
+        public string modifiedTime;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string currentStep;
+        public string deploymentId;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=8)]
-        public string totalSteps;
+        public string stepName;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=9)]
-        public string startTime;
+        public string currentStep;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=10)]
-        public string endTime;
+        public string totalSteps;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=11)]
-        public string details;
+        public string startTime;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=12)]
-        public string dartIp;
+        public string endTime;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=13)]
-        public string dartPort;
+        public string details;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=14)]
+        public string dartIp;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=15)]
+        public string dartPort;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=16)]
         public string dartTicket;
         
         public AddCMOSDMonitorDataRequestBody() {
         }
         
-        public AddCMOSDMonitorDataRequestBody(string secret, string uniqueId, string computerName, int severity, string modifiedTime, string deploymentId, string stepName, string currentStep, string totalSteps, string startTime, string endTime, string details, string dartIp, string dartPort, string dartTicket) {
+        public AddCMOSDMonitorDataRequestBody(
+                    string secret, 
+                    string uniqueId, 
+                    string computerName, 
+                    string uuid, 
+                    string macAddress, 
+                    int severity, 
+                    string modifiedTime, 
+                    string deploymentId, 
+                    string stepName, 
+                    string currentStep, 
+                    string totalSteps, 
+                    string startTime, 
+                    string endTime, 
+                    string details, 
+                    string dartIp, 
+                    string dartPort, 
+                    string dartTicket) {
             this.secret = secret;
             this.uniqueId = uniqueId;
             this.computerName = computerName;
+            this.uuid = uuid;
+            this.macAddress = macAddress;
             this.severity = severity;
             this.modifiedTime = modifiedTime;
             this.deploymentId = deploymentId;
@@ -10567,12 +10624,31 @@ namespace OSDMonitor.ConfigMgrWebService {
             return base.Channel.AddCMOSDMonitorData(request);
         }
         
-        public OSDMonitor.ConfigMgrWebService.CMOSDMonitor AddCMOSDMonitorData(string secret, string uniqueId, string computerName, int severity, string modifiedTime, string deploymentId, string stepName, string currentStep, string totalSteps, string startTime, string endTime, string details, string dartIp, string dartPort, string dartTicket) {
+        public OSDMonitor.ConfigMgrWebService.CMOSDMonitor AddCMOSDMonitorData(
+                    string secret, 
+                    string uniqueId, 
+                    string computerName, 
+                    string uuid, 
+                    string macAddress, 
+                    int severity, 
+                    string modifiedTime, 
+                    string deploymentId, 
+                    string stepName, 
+                    string currentStep, 
+                    string totalSteps, 
+                    string startTime, 
+                    string endTime, 
+                    string details, 
+                    string dartIp, 
+                    string dartPort, 
+                    string dartTicket) {
             OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequest inValue = new OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequest();
             inValue.Body = new OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequestBody();
             inValue.Body.secret = secret;
             inValue.Body.uniqueId = uniqueId;
             inValue.Body.computerName = computerName;
+            inValue.Body.uuid = uuid;
+            inValue.Body.macAddress = macAddress;
             inValue.Body.severity = severity;
             inValue.Body.modifiedTime = modifiedTime;
             inValue.Body.deploymentId = deploymentId;
@@ -10594,12 +10670,31 @@ namespace OSDMonitor.ConfigMgrWebService {
             return base.Channel.AddCMOSDMonitorDataAsync(request);
         }
         
-        public System.Threading.Tasks.Task<OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataResponse> AddCMOSDMonitorDataAsync(string secret, string uniqueId, string computerName, int severity, string modifiedTime, string deploymentId, string stepName, string currentStep, string totalSteps, string startTime, string endTime, string details, string dartIp, string dartPort, string dartTicket) {
+        public System.Threading.Tasks.Task<OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataResponse> AddCMOSDMonitorDataAsync(
+                    string secret, 
+                    string uniqueId, 
+                    string computerName, 
+                    string uuid, 
+                    string macAddress, 
+                    int severity, 
+                    string modifiedTime, 
+                    string deploymentId, 
+                    string stepName, 
+                    string currentStep, 
+                    string totalSteps, 
+                    string startTime, 
+                    string endTime, 
+                    string details, 
+                    string dartIp, 
+                    string dartPort, 
+                    string dartTicket) {
             OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequest inValue = new OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequest();
             inValue.Body = new OSDMonitor.ConfigMgrWebService.AddCMOSDMonitorDataRequestBody();
             inValue.Body.secret = secret;
             inValue.Body.uniqueId = uniqueId;
             inValue.Body.computerName = computerName;
+            inValue.Body.uuid = uuid;
+            inValue.Body.macAddress = macAddress;
             inValue.Body.severity = severity;
             inValue.Body.modifiedTime = modifiedTime;
             inValue.Body.deploymentId = deploymentId;

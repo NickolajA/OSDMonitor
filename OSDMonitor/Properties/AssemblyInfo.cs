@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("OSD Monitor")]
+[assembly: AssemblyTitle("ConfigMgr OSD Monitor")]
 [assembly: AssemblyDescription("Nickolaj Andersen (@NickolajA)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SCConfigMgr.com")]
-[assembly: AssemblyProduct("OSDMonitor")]
-[assembly: AssemblyCopyright("Copyright ©  2018")]
+[assembly: AssemblyCompany("SCConfigMgr")]
+[assembly: AssemblyProduct("ConfigMgr OSD Monitor")]
+[assembly: AssemblyCopyright("Copyright © 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
